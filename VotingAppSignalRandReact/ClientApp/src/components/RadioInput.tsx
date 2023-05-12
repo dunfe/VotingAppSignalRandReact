@@ -7,19 +7,27 @@ interface RadioInputProps {
 }
 
 const RadioInput = (props: RadioInputProps) => {
-    const {disable, choice, classType, index, onChoiceSelect} = props;
+    const { disable, choice, classType, index, onChoiceSelect } = props;
     const classString = disable ? "radio disabled" : "radio";
 
     const handleClick = () => {
         onChoiceSelect(choice);
     }
     return (
-        <div className={classString}>
-                <label className={classType}>
-                    <input type="radio" name="optionsRadios" id={index} value={choice} onChange={handleClick}  />
-                    {choice}
-                </label>
-            </div>
+        <div className={`form-check ${classString}`}>
+            <input
+                className={`form-check-input ${classType}`}
+                type="radio"
+                name="optionsRadios"
+                id={index}
+                value={choice}
+                onChange={handleClick}
+            />
+            <label className="form-check-label" htmlFor={index}>
+                {choice}
+            </label>
+        </div>
+
     )
 }
 

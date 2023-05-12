@@ -31,8 +31,12 @@ const DashboardApp: React.FC<DashboardAppProps> = ({ url }) => {
             connection.start()
                 .then(() => {
                     console.log('Connected!');
-                    connection.on('ReceiveMessage', (choice: DataItem[]) => {
-                        setData(JSON.parse(JSON.stringify(choice)));
+                    connection.on('ReceiveMessage', (choice: string) => {
+                        const data = JSON.parse(choice);
+                        console.log(typeof data);
+                        console.log(data);
+
+                        setData(data);
                     });
                 }).catch(error => {
                     console.log('Failed to connect', error);

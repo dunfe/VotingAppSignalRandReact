@@ -103,7 +103,7 @@ const QuizContainer = (props: QuizContainerProps) => {
                 <h1>Quiz</h1>
                 <p>{currentQuiz.question}</p>
                 {choices}
-                <button id="submit" className="btn btn-default" onClick={handleSubmit}>{button_name}</button>
+                <button id="submit" className="btn btn-primary" onClick={handleSubmit}>{button_name}</button>
             </div>
         );
     }
